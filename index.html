@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Papercraft — Free, Private PDF Tools</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Strict CSP (no inline styles; workers + CDN allowed) -->
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self';
+          script-src 'self' https://cdn.jsdelivr.net 'wasm-unsafe-eval';
+          style-src 'self';
+          img-src 'self' data: blob:;
+          connect-src 'self' https:;
+          worker-src 'self' https://cdn.jsdelivr.net blob:;
+          frame-src 'self' blob:;
+          object-src 'none';
+          base-uri 'self';
+          form-action 'self';
+        ">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="brand">Papercraft</div>
+    <nav class="nav" aria-label="Primary">
+      <a href="#/viewer" data-route>Viewer</a>
+      <a href="#/merge" data-route>Merge</a>
+      <a href="#/organize" data-route>Organize</a>
+      <a href="#/scrub" data-route>Scrub</a>
+      <a href="#/about" data-route>About</a>
+    </nav>
+  </header>
+
+  <main id="app" role="main" tabindex="-1" aria-live="polite"></main>
+
+  <footer class="foot">
+    <small>100% local. No uploads. © 2025 Papercraft.</small>
+  </footer>
+
+  <!-- Pinned vendor libs (no self-hosting required) -->
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.min.js"></script>
+
+  <!-- App -->
+  <script src="script.js"></script>
+</body>
+</html>
